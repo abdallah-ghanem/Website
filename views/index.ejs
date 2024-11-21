@@ -1,0 +1,32 @@
+<div class="author">
+    <h1 class="author__heading">Hi, I am Abdallah</h1>
+    <p class="author__body">Web developer and content creator.</p>
+</div>
+
+<img src="/img/hero-image.webp" alt="person looking out through window"
+    class="hero-image" width="981" height="528">
+
+<section class="articles">
+    <h2 class="articles__heading">Latest Posts</h2>
+
+    <ul class="article-ul">
+        <% data.forEach(post => { %><!-- post here we can write any word -->
+        <li>
+            <a href="/post/<%= post._id %>"><!-- Make each post with uniqe id indpentant far away from remains  -->
+                <span>
+                    <%= post.title %><!-- should you write word that use above at previous comment -->
+                </span>
+                <span class="article-list__date">
+                    <%= post.createdAt.toDateString() %><!-- toDateString to make remain data insie post hidden -->
+                </span>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+    <% if (nextPage !== null) { %><a
+        href="/?page=<%= nextPage %>" class="pagination">&lt;
+        View Older Posts</a>
+
+    
+    <% } %>
+</section>
